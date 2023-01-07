@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Recipe from './Recipe';
 function App() {
-const APP_ID = import.meta.env.VITE_REACT_APP_ID;
-const APP_KEY = import.meta.env.VITE_REACT_APP_KEY;
+/*const APP_ID = import.meta.env.VITE_REACT_APP_ID;
+const APP_KEY = import.meta.env.VITE_REACT_APP_KEY;*/
+const APP_ID  = '43a0645d';
+const APP_KEY = 'd2c78f5e3bff03bdf400aa1f671a2504'
 const[recipes, setRecipes]= useState([]);
 const[search, setSearch] = useState('');
 const[query, setQuery] = useState('spaghetti');
