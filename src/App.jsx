@@ -41,6 +41,7 @@ const getRecipes = async()=>{
     meal={recipe.recipe.mealType}
     key={recipe.recipe.calories}
     />))}
+    <div className="footer">Developed by <a href="https://salamah.netlify.app" className='text-blue-500'> Salamah</a></div>
     </div>
   )
  
