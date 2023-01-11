@@ -8,7 +8,7 @@ const APP_ID  = '43a0645d';
 const APP_KEY = 'd2c78f5e3bff03bdf400aa1f671a2504'
 const[recipes, setRecipes]= useState([]);
 const[search, setSearch] = useState('');
-const[query, setQuery] = useState('spaghetti');
+const[query, setQuery] = useState('stew');
 useEffect(()=>{
  getRecipes();
   
