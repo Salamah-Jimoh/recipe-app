@@ -1,30 +1,45 @@
-import React from 'react'
-import {Outlet, Link} from 'react-router-dom'
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+import { CiHeart } from "react-icons/ci";
+import { FaRegComment } from "react-icons/fa";
+import { AiFillEye } from 'react-icons/ai'
 
-const Recipe = ({title, cuisine, images,  ingredients, meal}) => {
+const Recipe = ({ title, cuisine, images, ingredients, meal }) => {
+  const trimName = (str, num) => {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    }
+    return str;
+  };
   return (
-    <div className=''>
-    <div className='flex flex-col justify-center items-center bg'>
-      <h1 className='text-4xl mb-8 text-center pt-6'>{title}</h1>
-      <div className='flex justify-center items-center'> <img className='max-w-full h-auto rounded shadow-xl' src={images} /></div>
-<div className=' bg-white m-8 flex space-between shadow-md'>
-      <div className='m-4'><p className='pt-1 font-semibold text-orange-500 text-xl'>Cuisine Type</p> <p className=' capitalize'>{cuisine}</p></div>
-      <div className='flex-1 m-4'><p className='pt-1 font-semibold text-orange-500 text-xl'>Meal Type </p> <p  className=' capitalize'>{meal}</p></div>
-      </div>
-      <div className='flex'>
-        <p className='mr-32 text-gray-600'>Ingredients</p>
-        <p className='text-gray-600'>{ingredients.length} Items</p>
-      </div>
-      <ol className=' bg-white p-2 mt-8 mb-8 shadow-md'>
-        {ingredients.map(ingredient =>(
-            <li className='m-2 p-2'>{ingredient.text}</li>
-        ))}
-
-        </ol>
-      <Outlet/>
+    <div className="bg-white relative p-2.5 rounded mb-10" key={title}>
+      <img
+        src={images}
+        alt=""
+        className="h-28 -mt-10 w-full object-cover rounded-lg"
+      />
+      <h2 className="font-semibold mt-3 lg:text-sm xl:text-lg">
+        {trimName(title, 15)}
+      </h2>
+      <p className="font-semibold">
+        Cuisene: <span className="text-gray-500 capitalize">{cuisine}</span>
+      </p>
+      <p className="font-semibold">
+        Type: <span className="text-gray-500 capitalize">{meal}</span>
+      </p>
+      {/* <div className="flex flex-row justify-between mt-5">
+        <div className="flex flex-row items-center gap-1 cursor-pointer">
+          <FaRegComment /> 22
+        </div>
+        <div className="flex flex-row items-center gap-1 cursor-pointer">
+          <CiHeart /> 12
+        </div>
+        <div className="flex flex-row items-center gap-1 cursor-pointer hover:text-orange-500 duration-300">
+          <AiFillEye /> View
+        </div>
+      </div> */}
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Recipe
+export default Recipe;
